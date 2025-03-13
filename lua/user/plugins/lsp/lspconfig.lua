@@ -23,14 +23,28 @@ return {
       callback = function(ev)
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf, silent = true }
 
+        -- this code block is from mood vim... implement as needed
+        -- - when LSP os connceted, this function is called.
+        -- local on_attach = function(client, bufnr)
+        --   local opts = { buffer = bufnr }
+        --
+        --   local bind = vim.keymap.set
+        --
+        --   bind("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+        --   bind("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
+        --   bind("n", "gI", "<cmd>Telescope lsp_implementations<cr>", opts)
+        --   bind("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
+        --   bind("n", "K", vim.lsp.buf.hover, opts)
+        -- end
+
+        local opts = { buffer = ev.buf, silent = true }
         -- set keybinds
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
         opts.desc = "Go to declaration"
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+        keymap.set("n", "gD", vim.lsp.buf.definition, opts) -- go to declaration
 
         opts.desc = "Show LSP definitions"
         keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
@@ -134,4 +148,3 @@ return {
     })
   end,
 }
-
