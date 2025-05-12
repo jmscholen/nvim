@@ -348,13 +348,14 @@ return {
       end,
       desc = "Goto Definition",
     },
-    {
-      "gD",
-      function()
-        Snacks.picker.lsp_declarations()
-      end,
-      desc = "Goto Declaration",
-    },
+    -- Ruby does not work with declaration
+    -- {
+    --   "gD",
+    --   function()
+    --     Snacks.picker.lsp_declarations()
+    --   end,
+    --   desc = "Goto Declaration",
+    -- },
     {
       "gr",
       function()

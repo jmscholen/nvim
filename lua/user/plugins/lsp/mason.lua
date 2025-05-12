@@ -37,9 +37,9 @@ return {
         "prismals",
         "pyright",
         "nginx_language_server",
-        "solargraph",
-        "standardrb",
-        "rubocop",
+        -- "solargraph",
+        -- "standardrb",
+        -- "rubocop",
       },
     })
 
